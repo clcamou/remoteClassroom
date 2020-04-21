@@ -8,9 +8,10 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  Button,
+  Button
 
 } from 'reactstrap';
+
 
 
 export default function HomePage(props) {
@@ -30,7 +31,9 @@ export default function HomePage(props) {
                   <CardTitle>
                     Students
                 </CardTitle>
-                  <Button>Sign Up</Button>
+                  <Link href="/signupStudent">
+                    <button type="button">Sign Up</button>
+                  </Link>
                   <CardText>
                     or <Link href="/login">
                       <a>Login</a>
@@ -45,7 +48,9 @@ export default function HomePage(props) {
                   <CardTitle>
                     Teachers
                 </CardTitle>
-                  <Button>Sign Up</Button>
+                  <Link href="/signup">
+                    <button type="button">Sign Up</button>
+                  </Link>
                   <CardText>
                    or <Link href="/login">
                       <a>Login</a>
@@ -58,6 +63,7 @@ export default function HomePage(props) {
             </Col>
           </Row>
         </Container>
+       
       </div>
     </>
   )

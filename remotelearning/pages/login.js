@@ -32,7 +32,8 @@ export default function LoginPage() {
 
   useEffect(() => {
     // redirect to home if user is authenticated
-    if (user) Router.push('/')
+    if (user === Teacher) Router.push('/teacherdashboard')
+    if (user === Student) Router.push('/studentDashboard')
   }, [user])
 
   return (

@@ -3,9 +3,11 @@ import Router from 'next/router'
 import Link from 'next/link'
 import { useUser } from '../lib/hooks';
 
+
 export default function SignupPage() {
   const [user, { mutate }] = useUser()
   const [errorMsg, setErrorMsg] = useState('')
+
 
   async function onSubmit(e) {
     e.preventDefault()
@@ -43,7 +45,9 @@ export default function SignupPage() {
   useEffect(() => {
     // redirect to home if user is authenticated
     if (user) Router.push('/teacherDashboard')
-  }, [user])
+   
+    else if (user) Router.push('/studentDashboard')},
+  [user])
 
   return (
     <>
