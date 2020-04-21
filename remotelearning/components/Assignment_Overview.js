@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 
-class Assignment_Hub extends React.Component{
+class Assignment_Overview extends React.Component{
   constructor(props){
       super(props);
       }
@@ -53,10 +53,6 @@ class Assignment_Hub extends React.Component{
         }
     }
 
-      sendAnswers(){
-
-      }
-
       render(){
         return (
           <div className = "assignment-container">
@@ -66,9 +62,13 @@ class Assignment_Hub extends React.Component{
               <p className = "feedback">{this.props.feedback}</p>
               <form action = {"/submit/" + this.props.assignment_id} method = "POST">
                 {this.generateAssignments(this.props.data)}
+                <div className = "submit-div">
+                  <h4>Submit Answers</h4>
+                  <input type = "submit"></input>
+                </div>
               </form>
           </div>
         )
       }
     }
-      export default Assignment_Hub
+      export default Assignment_Overview
