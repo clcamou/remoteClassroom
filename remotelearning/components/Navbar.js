@@ -1,80 +1,73 @@
-import Link from 'next/link'
+
+import React, { useState } from 'react';
+
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+} from 'reactstrap';
+
 import { useUser } from '../lib/hooks'
 
-export default function Navbar() {
+export default function NavBar() {
   const [user, { mutate }] = useUser()
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggle = () => setIsOpen(!isOpen);
   async function handleLogout() {
     await fetch('/api/logout')
     mutate({ user: null })
   }
 
   return (
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          {user ? (
-            <>
-              <li>
-                <Link href="/profile">
-                  <a>Profile</a>
-                </Link>
-              </li>
-              <li>
-                <a role="button" onClick={handleLogout}>
-                  Logout
+      <Navbar color="light" light expand="md">
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink href="/index">Home</NavLink>
+            </NavItem>
+            {user ? (
+              <>
+            <NavItem>
+              <a role="button" onClick={handleLogout}>
+                Logout
                 </a>
-              </li>
+            </NavItem>
             </>
-          ) : (
-            <>
-              <li>
-                <Link href="/signup">
-                  <a>Sign up</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/login">
-                  <a>Login</a>
-                </Link>
-              </li>
+            ) : (
+              <>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Options
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                  Option 1
+                </DropdownItem>
+                <DropdownItem>
+                  Option 2
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  Reset
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
             </>
-          )}
-        </ul>
-      </nav>
-      <style jsx>{`
-        nav {
-          max-width: 42rem;
-          margin: 0 auto;
-          padding: 0.2rem 1.25rem;
-        }
-        ul {
-          display: flex;
-          list-style: none;
-          margin-left: 0;
-          padding-left: 0;
-        }
-        li {
-          margin-right: 1rem;
-        }
-        li:first-child {
-          margin-left: auto;
-        }
-        a {
-          color: #fff;
-          text-decoration: none;
-          cursor: pointer;
-        }
-        header {
-          color: #fff;
-          background-color: #333;
-        }
-      `}</style>
-    </header>
-  )
+            )}
+          </Nav>
+          <NavbarBrand><img src="/logo.svg" alt="The Learning Curve"></img></NavbarBrand>
+        </Collapse>
+      </Navbar>
+  );
 }

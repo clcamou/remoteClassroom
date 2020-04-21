@@ -3,6 +3,7 @@ import Router from 'next/router'
 import Link from 'next/link'
 import { useUser } from '../lib/hooks'
 
+
 export default function LoginPage() {
   const [user, { mutate }] = useUser()
   const [errorMsg, setErrorMsg] = useState('')
@@ -25,7 +26,7 @@ export default function LoginPage() {
       // set user to useSWR state
       mutate(userObj)
     } else {
-      setErrorMsg('Incorrect username or password. Try better!')
+      setErrorMsg('Incorrect username or password. Try Again!')
     }
   }
 
