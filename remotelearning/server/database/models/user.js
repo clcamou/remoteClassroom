@@ -29,7 +29,10 @@ db.sequelize.define(
 	  },
 	  school_id: {
 		type: Sequelize.INTEGER, 
-	  },
+      },
+      role: {
+          type: Sequelize.Instance,
+      },
 	  created: {
 		type: Sequelize.DATE,
 		defaultValue: Sequelize.NOW

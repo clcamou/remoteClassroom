@@ -2,6 +2,7 @@ import passport from 'passport'
 import LocalStrategy from 'passport-local'
 import { findUserByUsername } from './db'
 const User = require('../server/database/models/user')
+const argon2 = require('argon2')
 
 passport.serializeUser(function(user, done) {
   // serialize the username into session
@@ -19,8 +20,11 @@ passport.deserializeUser(function(req, id, done) {
 
 passport.use(
   new LocalStrategy(
-    { passReqToCallback: true },
-    (req, username, password, done) => {
+    { usernameField: 'email', 
+      passwordField: 'password', 
+      roleField: 'role',
+      session: false },
+    (req, username, password, role, done) => {
       // Here you lookup the user in your DB and compare the password/hashed password
       const user = findUserByUsername(req, username)
       // Security-wise, if you hashed the password earlier, you must verify it
