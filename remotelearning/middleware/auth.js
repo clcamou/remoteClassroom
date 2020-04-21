@@ -1,6 +1,8 @@
 import nextConnect from 'next-connect'
 import passport from '../lib/passport'
 import session from '../lib/session'
+import { roles } from '../utils'
+import { useImperativeHandle } from 'react'
 
 const auth = nextConnect()
   .use(
@@ -21,6 +23,12 @@ const auth = nextConnect()
     // Remove this after you add your own database
     req.session.users = req.session.users || []
     next()
+
+    app.get('/admin-dashboard', passport.authenticate('jwt', { failureRedirect: '/login'}),
+    utils.checkIsInRole(ROLES.Teacher), 
+    (req, res) => {
+      return handle(req, res)
+    })
   })
   .use(passport.initialize())
   .use(passport.session())

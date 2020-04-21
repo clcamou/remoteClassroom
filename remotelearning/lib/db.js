@@ -1,3 +1,4 @@
+
 export function getAllUsers(req) {
   // For demo purpose only. You are not likely to have to return all users.
   return req.session.users
