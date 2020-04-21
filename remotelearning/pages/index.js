@@ -1,50 +1,67 @@
 import { useUser, fetcher } from '../lib/hooks';
-import useSWR from 'swr';
 import Link from 'next/link';
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardText,
+  CardBody,
+  CardTitle,
+  Button,
+
+} from 'reactstrap';
 
 
-function UserList() {
-  const { data: { users } = {} } = useSWR('/api/users', fetcher)
+export default function HomePage(props) {
+
   return (
     <>
-      <h2>All users</h2>
-      {!!users?.length && (
-        <ul>
-          {users.map(user => (
-            <li key={user.username}>{JSON.stringify(user)}</li>
-          ))}
-        </ul>
-      )}
-    </>
-  )
-}
+      <div>
+        <Container>
+          <Row>
+            <h1> Remote Learning Made Easy </h1>
+          </Row>
 
-export default function HomePage() {
-  const [user] = useUser()
-  return (
-    <>
-      <h1>
-        Welcome
-      </h1>
-      <h2> Please Login or Sign Up</h2>
-      <ol><Link href="/signup">
-        <a>Sign up</a>
-      </Link></ol>
+          <Row>
+            <Col sm="6">
+              <Card>
+                <CardBody>
+                  <CardTitle>
+                    Students
+                </CardTitle>
+                  <Button>Sign Up</Button>
+                  <CardText>
+                    or <Link href="/login">
+                      <a>Login</a>
+                    </Link>
+                  </CardText>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col sm="6">
+              <Card>
+                <CardBody>
+                  <CardTitle>
+                    Teachers
+                </CardTitle>
+                  <Button>Sign Up</Button>
+                  <CardText>
+                   or <Link href="/login">
+                      <a>Login</a>
+                    </Link>
+                  </CardText>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col>
+            </Col>
+          </Row>
+        </Container>
+        <style>
 
-      <ol>
-        <Link href="/login">
-          <a>Login</a>
-        </Link>
-      </ol>
-     
-     
-      {user && <p>Currently logged in as: {JSON.stringify(user)}</p>}
-      <UserList />
-      <style jsx>{`
-        li {
-          margin-bottom: 0.5rem;
-        }
-      `}</style>
+        </style>
+      </div>
     </>
   )
 }

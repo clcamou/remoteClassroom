@@ -13,7 +13,6 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
-  NavbarText
 } from 'reactstrap';
 
 import { useUser } from '../lib/hooks'
@@ -29,45 +28,54 @@ export default function NavBar() {
   }
 
   return (
+    <header>
       <Navbar color="light" light expand="md">
+        <NavbarBrand><img src="/logo.svg" alt="The Learning Curve"></img></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="ml-auto" navbar>
             <NavItem>
               <NavLink href="/index">Home</NavLink>
             </NavItem>
             {user ? (
               <>
-            <NavItem>
-              <a role="button" onClick={handleLogout}>
-                Logout
-                </a>
-            </NavItem>
-            </>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    <img src="/settings.svg" alt="settings" width={30}></img>
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem>
+                      <NavLink href="/profile">
+                       <img src="/account.svg" alt="profile" width={30}></img> <a>Profile</a>
+                      </NavLink>
+                    </DropdownItem>
+                    <DropdownItem divider/>
+                      <DropdownItem>
+                      <NavLink role="button" onClick={handleLogout}>
+                        <img src="/logout.svg" alt="logout" width={30}></img> <a>Logout</a>
+                      </NavLink>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </>
             ) : (
-              <>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  Option 1
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-            </>
-            )}
+                <>
+                  <NavItem>
+                    <NavLink href="/signup">
+                      <a>Sign up</a>
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink href="/login">
+                      <a>login</a>
+                    </NavLink>
+                  </NavItem>
+                </>
+              )}
           </Nav>
-          <NavbarBrand><img src="/logo.svg" alt="The Learning Curve"></img></NavbarBrand>
+
         </Collapse>
       </Navbar>
+    </header>
   );
 }
