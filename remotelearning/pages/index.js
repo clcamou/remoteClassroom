@@ -58,9 +58,6 @@ export default function HomePage(props) {
             </Col>
           </Row>
         </Container>
-        <style>
-
-        </style>
       </div>
     </>
   )
