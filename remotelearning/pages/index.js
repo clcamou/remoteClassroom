@@ -32,7 +32,7 @@ export default function HomePage(props) {
                     Students
                 </CardTitle>
                   <Link href="/signupStudent">
-                    <button type="button">Sign Up</button>
+                    <button type="button" className="btn-primary"> Sign Up</button>
                   </Link>
                   <CardText>
                     or <Link href="/login">
@@ -49,7 +49,7 @@ export default function HomePage(props) {
                     Teachers
                 </CardTitle>
                   <Link href="/signup">
-                    <button type="button">Sign Up</button>
+                  <button type="button" className="btn-primary"> Sign Up</button>
                   </Link>
                   <CardText>
                    or <Link href="/login">

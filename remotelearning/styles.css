@@ -78,8 +78,13 @@ h1 {
 
 .card {
   text-align: center;
-  font-size: 26px;
   font-family: 'Indie Flower', cursive;
+  font-size: larger;
+}
+
+.card-title {
+  color:cadetblue;
+  font-size: 30px;
 }
 
 
