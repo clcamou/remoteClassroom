@@ -37,7 +37,7 @@ export default function LoginPage() {
 
   return (
     <>
-      <h1>Login to Example</h1>
+      <h1>Login</h1>
       {errorMsg && <p className="error">{errorMsg}</p>}
       <div className="form-container">
         <form onSubmit={onSubmit}>

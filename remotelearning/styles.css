@@ -3,6 +3,9 @@
 *::after {
   box-sizing: border-box;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"');
+
 body {
   margin: 0;
   color: #333;
@@ -65,14 +68,17 @@ input {
   text-align: center;
 }
 
+
 h1 {
   color: cadetblue;
   margin: auto;
   padding: 10px;
+  font-family: 'Indie Flower', cursive;
 }
 
 .card {
   text-align: center;
   font-size: larger;
+  font-family: 'Indie Flower', cursive;
 }
 
