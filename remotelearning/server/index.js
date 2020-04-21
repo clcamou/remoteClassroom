@@ -29,7 +29,11 @@ nextApp.prepare().then(async () => {
   router(app)
   initialiseAuthentication(app)
 
-app.get('/admin-dashboard', passport.authenticate('jwt', {  failureRedirect: '/login' }), utils.checkIsInRole(ROLES.Teacher), (req, res) => {
+app.get('/teacherDashboard', passport.authenticate('jwt', {  failureRedirect: '/login' }), utils.checkIsInRole(ROLES.Teacher), (req, res) => {
+    return handle(req, res)
+})
+
+app.get('/studentDashboard', passport.authenticate('jwt', {  failureRedirect: '/login' }), utils.checkIsInRole(ROLES.Student), (req, res) => {
     return handle(req, res)
 })
 

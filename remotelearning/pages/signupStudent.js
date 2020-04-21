@@ -42,12 +42,12 @@ export default function SignupPage() {
 
   useEffect(() => {
     // redirect to home if user is authenticated
-    if (user) Router.push('/teacherDashboard')
+    if (user) Router.push('/studentDashboard')
   }, [user])
 
   return (
     <>
-      <h1>Sign Up As A Teacher</h1>
+      <h1>Sign Up As A Student</h1>
       {errorMsg && <p className="error">{errorMsg}</p>}
       <div className="form-container">
         <form onSubmit={onSubmit}>
@@ -90,7 +90,6 @@ export default function SignupPage() {
         .form-container {
           background-color: white;
         }
-        
       `}</style>
     </>
   )
