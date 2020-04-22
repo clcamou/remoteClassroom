@@ -1,6 +1,6 @@
-const Roles = {
-    Teacher: "Teacher",
-    Student: "Student"
-}
-
-export { Roles }
+const ROLES = {
+    Teacher: 'Teacher',
+    Student: 'Student'
+  }
+  
+  export { ROLES }

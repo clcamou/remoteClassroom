@@ -1,3 +1,4 @@
+import { userModel } from './models/user'
 //import Sequelize library 
 const Sequelize = require('sequelize');
 
@@ -16,6 +17,10 @@ const sequelize = new Sequelize('logindb','root', 'Greenapples_45', {
         idle: 10000
     }
 });
+
+userModel.find({}).exec((err, users) =>
+    users.forEach(u => console.log(u))
+)
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

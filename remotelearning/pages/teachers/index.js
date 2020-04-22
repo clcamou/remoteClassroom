@@ -14,14 +14,14 @@ import {
 
 
 
-export default function HomePage(props) {
+export default function HomePageTeacher(props) {
 
   return (
     <>
       <div>
         <Container>
           <Row>
-            <h1> Remote Learning Made Easy </h1>
+            <h1> Welcome Teachers </h1>
           </Row>
 
           <Row>
@@ -31,11 +31,11 @@ export default function HomePage(props) {
                   <CardTitle>
                     Students
                 </CardTitle>
-                  <Link href="../students/signupStudent">
+                  <Link href="/signupStudent">
                     <button type="button" className="btn-primary"> Sign Up</button>
                   </Link>
                   <CardText>
-                    or <Link href="../students/studentlogin">
+                    or <Link href="/login">
                       <a>Login</a>
                     </Link>
                   </CardText>
@@ -48,11 +48,11 @@ export default function HomePage(props) {
                   <CardTitle>
                     Teachers
                 </CardTitle>
-                  <Link href="../teachers/signupTeacher">
+                  <Link href="/signup">
                   <button type="button" className="btn-primary"> Sign Up</button>
                   </Link>
                   <CardText>
-                   or <Link href="../teachers/teacherlogin">
+                   or <Link href="/login">
                       <a>Login</a>
                     </Link>
                   </CardText>

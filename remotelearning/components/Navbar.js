@@ -34,9 +34,6 @@ export default function NavBar() {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/index">Sign up</NavLink>
-            </NavItem>
             {user ? (
               <>
                 <UncontrolledDropdown nav inNavbar>
@@ -46,11 +43,11 @@ export default function NavBar() {
                   <DropdownMenu right>
                     <DropdownItem>
                       <NavLink href="/profile">
-                       <img src="/account.svg" alt="profile" width={30}></img> <a>Profile</a>
+                        <img src="/account.svg" alt="profile" width={30}></img> <a>Profile</a>
                       </NavLink>
                     </DropdownItem>
-                    <DropdownItem divider/>
-                      <DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
                       <NavLink role="button" onClick={handleLogout}>
                         <img src="/logout.svg" alt="logout" width={30}></img> <a>Logout</a>
                       </NavLink>
@@ -61,9 +58,7 @@ export default function NavBar() {
             ) : (
                 <>
                   <NavItem>
-                    <NavLink href="/login">
-                      <a>login</a>
-                    </NavLink>
+                    <NavLink href="/">Sign up</NavLink>
                   </NavItem>
                 </>
               )}

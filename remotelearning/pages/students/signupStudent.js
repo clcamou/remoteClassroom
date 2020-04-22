@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
-import { useUser } from '../lib/hooks';
+import { useUser } from '../../lib/hooks'
 
 export default function SignupPage() {
   const [user, { mutate }] = useUser()
@@ -13,10 +13,7 @@ export default function SignupPage() {
     const body = {
       username: e.currentTarget.username.value,
       password: e.currentTarget.password.value,
-      first_name: e.currentTarget.first_name.value,
-      last_name: e.currentTarget.last_name.value,
-      email: e.currentTarget.email.value,
-
+      name: e.currentTarget.name.value,
     }
 
     if (body.password !== e.currentTarget.rpassword.value) {
@@ -41,62 +38,52 @@ export default function SignupPage() {
 
   useEffect(() => {
     // redirect to home if user is authenticated
-    if (user) Router.push('/studentDashboard')
+    if (user) Router.push('/')
   }, [user])
 
   return (
     <>
-      <h1>Sign Up As A Student</h1>
+      <h1>Sign up as a Student</h1>
       {errorMsg && <p className="error">{errorMsg}</p>}
       <div className="form-container">
         <form onSubmit={onSubmit}>
           <label>
-            <span> Username </span>
+            <span>Username</span>
             <input type="text" name="username" required />
           </label>
           <label>
-            <span> Email </span>
-            <input type="text" name="email" required></input>
-          </label>
-          <label>
-            <span> First Name </span>
-            <input type="text" name="first_name" required />
-          </label>
-          <label>
-            <span> Last Name </span>
-            <input type="text" name="last_name" required />
-          </label>
-          <label>
-            <span> Password </span>
+            <span>Password</span>
             <input type="password" name="password" required />
           </label>
           <label>
-            <span> Repeat password </span>
+            <span>Repeat password</span>
             <input type="password" name="rpassword" required />
           </label>
-         
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" required />
+          </label>
           <div className="submit">
             <button type="submit">Sign up</button>
-          </div>
-          <div>
-            <Link href="/login">
+            <Link href="../students/studentlogin">
               <a>I already have an account</a>
             </Link>
           </div>
         </form>
-      </div>
       <style jsx>{`
         label {
           color: cadetblue;
+          width: 50%
         }
         .form-container {
           background-color: white;
         }
         button {
           background-color: cadetblue;
-          color: white
+          color: white;
         }
       `}</style>
+      </div>
     </>
   )
 }

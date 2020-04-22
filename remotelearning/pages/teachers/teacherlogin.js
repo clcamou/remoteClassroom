@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
-import { useUser } from '../lib/hooks'
+import { useUser } from '../../lib/hooks'
 
 
 export default function LoginPage() {
@@ -32,13 +32,12 @@ export default function LoginPage() {
 
   useEffect(() => {
     // redirect to home if user is authenticated
-    if (user === Teacher) Router.push('/teacherdashboard')
-    if (user === Student) Router.push('/studentDashboard')
+    if (user) Router.push('/')
   }, [user])
 
   return (
     <>
-      <h1>Login</h1>
+      <h1>Teacher Login</h1>
       {errorMsg && <p className="error">{errorMsg}</p>}
       <div className="form-container">
         <form onSubmit={onSubmit}>
@@ -52,11 +51,24 @@ export default function LoginPage() {
           </label>
           <div className="submit">
             <button type="submit">Login</button>
-            <Link href="/signup">
+            <Link href="../teachers/signupTeacher">
               <a>I don't have an account</a>
             </Link>
           </div>
         </form>
+        <style jsx>{`
+        label {
+          color: cadetblue;
+          width: 50%
+        }
+        .form-container {
+          background-color: white;
+        }
+        button {
+          background-color: cadetblue;
+          color: white;
+        }
+      `}</style>
       </div>
     </>
   )
