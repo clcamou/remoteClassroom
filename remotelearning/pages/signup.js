@@ -17,8 +17,6 @@ export default function SignupPage() {
       password: e.currentTarget.password.value,
       first_name: e.currentTarget.first_name.value,
       last_name: e.currentTarget.last_name.value,
-      email: e.currentTarget.email.value,
-      school: e.currentTarget.school_id.value,
 
     }
 
@@ -93,6 +91,10 @@ export default function SignupPage() {
         }
         .form-container {
           background-color: white;
+        }
+        button {
+          background-color: cadetblue;
+          color: white;
         }
         
       `}</style>

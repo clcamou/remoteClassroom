@@ -16,7 +16,6 @@ export default function SignupPage() {
       first_name: e.currentTarget.first_name.value,
       last_name: e.currentTarget.last_name.value,
       email: e.currentTarget.email.value,
-      school: e.currentTarget.school_id.value,
 
     }
 
@@ -56,6 +55,10 @@ export default function SignupPage() {
             <input type="text" name="username" required />
           </label>
           <label>
+            <span> Email </span>
+            <input type="text" name="email" required></input>
+          </label>
+          <label>
             <span> First Name </span>
             <input type="text" name="first_name" required />
           </label>
@@ -85,10 +88,13 @@ export default function SignupPage() {
       <style jsx>{`
         label {
           color: cadetblue;
-          width: 50%
         }
         .form-container {
           background-color: white;
+        }
+        button {
+          background-color: cadetblue;
+          color: white
         }
       `}</style>
     </>

@@ -35,7 +35,7 @@ export default function NavBar() {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="/index">Home</NavLink>
+              <NavLink href="/index">Sign up</NavLink>
             </NavItem>
             {user ? (
               <>
@@ -60,11 +60,6 @@ export default function NavBar() {
               </>
             ) : (
                 <>
-                  <NavItem>
-                    <NavLink href="/signup">
-                      <a>Sign up</a>
-                    </NavLink>
-                  </NavItem>
                   <NavItem>
                     <NavLink href="/login">
                       <a>login</a>
