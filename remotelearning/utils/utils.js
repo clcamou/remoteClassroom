@@ -3,7 +3,7 @@ import passport from 'passport'
 import jwt from 'jsonwebtoken'
 import argon2 from 'argon2'
 import { UserModel } from './database/models'
-import { Roles } from './database/models/user'
+import { Roles } from '../database/models/user'
 
 const setup = () => {
   passport.serializeUser((user, done) => done(null, user._id))

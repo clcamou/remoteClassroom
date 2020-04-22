@@ -9,7 +9,7 @@ import passport from 'passport'
 import router from './router'
 import { connectToDatabase } from './database/connection'
 import { initialiseAuthentication, utils } from './auth'
-import { ROLES } from '../utils'
+import { ROLES } from './utils'
 
 const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({ dev })
