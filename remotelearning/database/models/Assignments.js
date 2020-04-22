@@ -12,8 +12,11 @@ db.sequelize.define(
       primaryKey: true,
       autoIncrement: true
     },
+    assignment_name: {
+      type: Sequelize.STRING
+    },
     class_id: {
-      type: Sequelize.INTEGER, 
+      type: Sequelize.INTEGER 
     },
     created: {
       type: Sequelize.DATE,
