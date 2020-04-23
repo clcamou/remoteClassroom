@@ -1,6 +1,11 @@
+export function getAllUsers(req) {
+  // For demo purpose only. You are not likely to have to return all users.
+  return req.session.users
+}
 
-export async function createUser(req, user) {
-  await db.createUser(user)
+export function createUser(req, user) {
+  // Here you should insert the user into the database
+  // await db.createUser(user)
   req.session.users.push(user)
 }
 

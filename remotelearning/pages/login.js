@@ -25,7 +25,7 @@ export default function LoginPage() {
       // set user to useSWR state
       mutate(userObj)
     } else {
-      setErrorMsg('Incorrect username or password. Try better!')
+      setErrorMsg('Incorrect username or password. Please Try Again!')
     }
   }
 
@@ -33,7 +33,6 @@ export default function LoginPage() {
     // redirect to home if user is authenticated
     if (user) Router.push('/')
   }, [user])
-
 
   return (
     <>
@@ -51,7 +50,7 @@ export default function LoginPage() {
           </label>
           <div className="submit">
             <button type="submit">Login</button>
-            <Link href="../students/signupStudents">
+            <Link href="/signup">
               <a>I don't have an account</a>
             </Link>
           </div>
@@ -71,5 +70,6 @@ export default function LoginPage() {
       `}</style>
       </div>
     </>
-  )
+  ) 
 }
+     

@@ -43,10 +43,14 @@ export default function SignupPage() {
 
   return (
     <>
-      <h1>Sign up to Example</h1>
+      <h1>Sign up</h1>
       {errorMsg && <p className="error">{errorMsg}</p>}
       <div className="form-container">
         <form onSubmit={onSubmit}>
+        <label>
+            <span>Name</span>
+            <input type="text" name="name" required />
+          </label>
           <label>
             <span>Username</span>
             <input type="text" name="username" required />
@@ -59,10 +63,6 @@ export default function SignupPage() {
             <span>Repeat password</span>
             <input type="password" name="rpassword" required />
           </label>
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" required />
-          </label>
           <div className="submit">
             <button type="submit">Sign up</button>
             <Link href="/login">
@@ -70,6 +70,19 @@ export default function SignupPage() {
             </Link>
           </div>
         </form>
+        <style jsx>{`
+        label {
+          color: cadetblue;
+          width: 50%
+        }
+        .form-container {
+          background-color: white;
+        }
+        button {
+          background-color: cadetblue;
+          color: white;
+        }
+      `}</style>
       </div>
     </>
   )
