@@ -9,7 +9,7 @@ class Lessons_Overview extends React.Component{
       generateLessonData(data){
         if (data.length > 0){
           data.map((rows) =>{
-            const id = rows.lesson_id
+            const id = rows.content_id
             const lesson_content = rows.lesson_content;
             // content types text,image, and video (youtube at least) valid for now
             const content_type = rows.content_type;
@@ -29,6 +29,7 @@ class Lessons_Overview extends React.Component{
                     </div>
                 )
             }
+            // for text content
             else{
                 return (
                     <div className = "lesson-content">
