@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^0.11.0",
     "@casl/ability": "^4.0.7",
     "@casl/react": "^2.1.0",
     "@hapi/iron": "6.0.0",
