@@ -12,40 +12,24 @@ class Assignment_Hub extends React.Component{
             const id = rows.assignment_id
             const assignment_name = rows.assignment_name;
             const is_complete = rows.is_complete;
-            const grade = rows.grade;
-            const feedback = rows.feedback;
             let completeRow; 
-            let feedbackRow;
-            let gradeRow;
-            if (feedback){
-              feedbackRow = <p>Feedback Available</p>
-            } else{
-              feedbackRow = <td>No Feedback Yet</td>
-            }
             if (is_complete){
             completeRow = <td>Complete</td>
             }else{
               completeRow = <td>Incomplete</td>
-            }
-            if (grade){
-            gradeRow = <td>{grade}</td>
-            } else{
-              gradeRow = <td>Ungraded</td>
             }
 
             return(
               <tr key = {id}>
                 <td>{assignment_name}</td>
                 {completeRow}
-                {gradeRow}
-                {feedbackRow}
-              <td><a href = {window.location.hostname +"/assignments/?id=" + {id}}><button>Go to Assignment</button></a></td>
+              <td><a href = {window.location.hostname +"/quiz/?id=" + {id}}><button>Go to Quiz</button></a></td>
               </tr>
             )
           })
         }else{
           return(
-            <h6>No Assignments Given Yet!</h6>
+            <h6>No Quizzes Available for this Class!</h6>
           )
         }
       }
@@ -55,11 +39,9 @@ class Assignment_Hub extends React.Component{
           <div className = "assignments-container">
             <table id = "assignments-table">
               <tr>
-                <th>Assignment Name</th>
+                <th>Quiz Name</th>
                 <th>Completion Status</th>
-                <th>Grade</th>
-                <th>Feedback</th>
-                <th>Go to Assignment</th>
+                <th>Go to Quiz</th>
               </tr>
             {this.generateAssignments(this.props.data)}
             </table>

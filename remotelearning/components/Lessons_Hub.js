@@ -17,7 +17,7 @@ class Lessons_Hub extends React.Component{
             return(
               <tr key = {id}>
                 <td>{lesson_name}</td>
-              <td><a href = {window.location.hostname +"/lessons/" + {id}}><button>Go to Lesson</button></a></td>
+              <td><a href = {window.location.hostname +"/lessons/?id=" + {id}}><button>Go to Lesson</button></a></td>
               </tr>
             )
           })
