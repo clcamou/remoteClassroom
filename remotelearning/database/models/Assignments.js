@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const db = require('../database/db.js');
 
 //define the model with field of database
-db.sequelize.define(
+let Assignments = db.sequelize.define(
   'Assignments',
   {
     assignment_id: {
