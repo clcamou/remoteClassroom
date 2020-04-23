@@ -24,19 +24,19 @@ class Quiz extends React.Component{
                         <h5 className = "prompt">{prompt}</h5>
                         <div className = "multiple-choice-answers">
                             <h6>{answer_1}</h6>
-                            <input type = "radio" name = {question_number} id = {answer_1}></input>
+                            <input type = "radio" name = {question_number} value = {answer_1} id = {answer_1} required></input>
                         </div>
                         <div className = "multiple-choice-answers">
                             <h6>{answer_2}</h6>
-                            <input type = "radio" name = {question_number} id = {answer_2}></input>    
+                            <input type = "radio" name = {question_number} value = {answer_2} id = {answer_2} required></input>    
                         </div>
                         <div className = "multiple-choice-answers">
                             <h6>{answer_3}</h6>
-                            <input type = "radio" name = {question_number} id = {answer_3}></input>
+                            <input type = "radio" name = {question_number} value = {answer_3} id = {answer_3} required></input>
                         </div>
                         <div className = "multiple-choice-answers">
                             <h6>{answer_4}</h6>
-                            <input type = "radio" name = {question_number} id = {answer_4}></input>
+                            <input type = "radio" name = {question_number} value = {answer_4} id = {answer_4} required></input>
                         </div>
                     </div>
                     )
