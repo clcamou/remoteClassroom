@@ -1,4 +1,5 @@
 import { useUser, fetcher } from '../lib/hooks';
+import React from 'react';
 import Link from 'next/link';
 import {
   Container,
@@ -11,7 +12,6 @@ import {
   Button
 
 } from 'reactstrap';
-
 
 
 export default function HomePage(props) {
@@ -31,11 +31,11 @@ export default function HomePage(props) {
                   <CardTitle>
                     Students
                 </CardTitle>
-                  <Link href="../students/signupStudent">
+                  <Link href="/signup">
                     <button type="button" className="btn-primary"> Sign Up</button>
                   </Link>
                   <CardText>
-                    or <Link href="../students/studentlogin">
+                    or <Link href="/login">
                       <a>Login</a>
                     </Link>
                   </CardText>
@@ -48,11 +48,11 @@ export default function HomePage(props) {
                   <CardTitle>
                     Teachers
                 </CardTitle>
-                  <Link href="../teachers/signupTeacher">
+                  <Link href="/signup">
                   <button type="button" className="btn-primary"> Sign Up</button>
                   </Link>
                   <CardText>
-                   or <Link href="../teachers/teacherlogin">
+                   or <Link href="/login">
                       <a>Login</a>
                     </Link>
                   </CardText>

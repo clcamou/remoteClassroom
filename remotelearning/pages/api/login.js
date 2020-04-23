@@ -9,3 +9,5 @@ handler.use(auth).post(passport.authenticate('local'), (req, res) => {
 })
 
 export default handler
+
+

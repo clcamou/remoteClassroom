@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import Router from 'next/router'
 import Link from 'next/link'
-import { useUser } from '../../lib/hooks'
+import { useUser } from '../lib/hooks'
 
-export default function SignupTeacherPage() {
+export default function LoginPage() {
   const [user, { mutate }] = useUser()
   const [errorMsg, setErrorMsg] = useState('')
 
@@ -13,26 +13,19 @@ export default function SignupTeacherPage() {
     const body = {
       username: e.currentTarget.username.value,
       password: e.currentTarget.password.value,
-      name: e.currentTarget.name.value,
     }
-
-    if (body.password !== e.currentTarget.rpassword.value) {
-      setErrorMsg(`The passwords don't match`)
-      return
-    }
-
-    const res = await fetch('/api/users', {
+    const res = await fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
     })
 
-    if (res.status === 201) {
+    if (res.status === 200) {
       const userObj = await res.json()
       // set user to useSWR state
       mutate(userObj)
     } else {
-      setErrorMsg(await res.text())
+      setErrorMsg('Incorrect username or password. Try better!')
     }
   }
 
@@ -41,9 +34,10 @@ export default function SignupTeacherPage() {
     if (user) Router.push('/')
   }, [user])
 
+
   return (
     <>
-      <h1>Sign up as a Teacher</h1>
+      <h1>Student Login</h1>
       {errorMsg && <p className="error">{errorMsg}</p>}
       <div className="form-container">
         <form onSubmit={onSubmit}>
@@ -55,22 +49,14 @@ export default function SignupTeacherPage() {
             <span>Password</span>
             <input type="password" name="password" required />
           </label>
-          <label>
-            <span>Repeat password</span>
-            <input type="password" name="rpassword" required />
-          </label>
-          <label>
-            <span>Name</span>
-            <input type="text" name="name" required />
-          </label>
           <div className="submit">
-            <button type="submit">Sign up</button>
-            <Link href="../teachers/teacherlogin">
-              <a>I already have an account</a>
+            <button type="submit">Login</button>
+            <Link href="../students/signupStudents">
+              <a>I don't have an account</a>
             </Link>
           </div>
         </form>
-      <style jsx>{`
+        <style jsx>{`
         label {
           color: cadetblue;
           width: 50%

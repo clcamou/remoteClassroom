@@ -1,16 +1,11 @@
 import nextConnect from 'next-connect'
 import auth from '../../middleware/auth'
-import { getAllUsers, createUser, findUserByUsername } from '../../lib/db'
+import { createUser, findUserByUsername } from '../../lib/db'
 
 const handler = nextConnect()
 
 handler
   .use(auth)
-  .get((req, res) => {
-    // For demo purpose only. You will never have an endpoint which returns all users.
-    // Remove this in production
-    res.json({ users: getAllUsers(req) })
-  })
   .post((req, res) => {
     const { username, password, name } = req.body
     if (!username || !password || !name) {

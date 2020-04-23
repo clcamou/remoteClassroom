@@ -36,6 +36,7 @@ export default function NavBar() {
           <Nav className="ml-auto" navbar>
             {user ? (
               <>
+                
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
                     <img src="/settings.svg" alt="settings" width={30}></img>
