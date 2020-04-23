@@ -5,7 +5,7 @@ const db = require('../database/db.js');
 
 //define the model with field of database
 module.exports = db.sequelize.define(
-  'user',
+  'lesson_content',
   {
     content_id: {
       type: Sequelize.INTEGER,

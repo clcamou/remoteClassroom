@@ -6,7 +6,6 @@ import Student_Assignments from "../../database/models/Student_Assignments";
 export default async (req,res) => {
     let user_id = req.body.user_id
     let assignment_id = req.body.assignment_id
-    let grade = req.body.grade
     Student_Assignments.findOne({
         where: {
             user_id: user_id,
@@ -14,7 +13,7 @@ export default async (req,res) => {
         }
     }).then((data) =>{
         return data.update({
-            grade: grade
+            is_complete: false
         })
     }).then(() => {
         res.end()
