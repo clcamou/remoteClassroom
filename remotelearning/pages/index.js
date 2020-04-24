@@ -3,6 +3,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import { useFetchUser } from '../lib/user'
 import card from 'reactstrap'
+import Dashboard from '../components/Dashboard'
 
 function Home() {
   const { user, loading } = useFetchUser()
@@ -28,6 +29,7 @@ function Home() {
           <h1>Welcome {user.nickname}</h1>
           <p><img src={user.picture} alt="user picture" /></p>
           <p>name: {user.name}</p>
+          <Dashboard/>
         </>
       )}
       <style jsx>{`

@@ -11,6 +11,7 @@ function ProfileCard({ user }) {
       <h1>Profile</h1>
 
       <div>
+
         <img src={user.picture} alt="user picture" />
         <p>Username: {user.nickname}</p>
         <p>Email: {user.name}</p>
