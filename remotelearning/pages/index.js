@@ -1,70 +1,39 @@
-import { useUser, fetcher } from '../lib/hooks';
-import React from 'react';
-import Link from 'next/link';
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardText,
-  CardBody,
-  CardTitle,
-  Button
+import React from 'react'
 
-} from 'reactstrap';
+import Layout from '../components/layout'
+import { useFetchUser } from '../lib/user'
 
-
-export default function HomePage(props) {
+function Home() {
+  const { user, loading } = useFetchUser()
 
   return (
-    <>
-      <div>
-        <Container>
-          <Row>
-            <h1> Remote Learning Made Easy </h1>
-          </Row>
+    <Layout user={user} loading={loading}>
+      <h1>Next.js and Auth0 Example</h1>
 
-          <Row>
-            <Col sm="6">
-              <Card>
-                <CardBody>
-                  <CardTitle>
-                    Students
-                </CardTitle>
-                  <Link href="/signup">
-                    <button type="button" className="btn-primary"> Sign Up</button>
-                  </Link>
-                  <CardText>
-                    or <Link href="/login">
-                      <a>Login</a>
-                    </Link>
-                  </CardText>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col sm="6">
-              <Card>
-                <CardBody>
-                  <CardTitle>
-                    Teachers
-                </CardTitle>
-                  <Link href="/signup">
-                  <button type="button" className="btn-primary"> Sign Up</button>
-                  </Link>
-                  <CardText>
-                   or <Link href="/login">
-                      <a>Login</a>
-                    </Link>
-                  </CardText>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col>
-            </Col>
-          </Row>
-        </Container>
-       
-      </div>
-    </>
+      {loading && <p>Loading login info...</p>}
+
+      {!loading && !user && (
+        <>
+          <p>
+            To test the login click in <i>Login</i>
+          </p>
+          <p>
+            Once you have logged in you should be able to click in{' '}
+            <i>Profile</i> and <i>Logout</i>
+          </p>
+        </>
+      )}
+
+      {user && (
+        <>
+          <h4>Rendered user info on the client</h4>
+          <img src={user.picture} alt="user picture" />
+          <p>nickname: {user.nickname}</p>
+          <p>name: {user.name}</p>
+        </>
+      )}
+    </Layout>
   )
 }
+
+export default Home
