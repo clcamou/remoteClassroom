@@ -39,7 +39,11 @@ class Assignment_Hub extends React.Component{
                 {completeRow}
                 {gradeRow}
                 {feedbackRow}
-              <td><a href = {window.location.hostname +"/assignments/?id=" + {id}}><button>Go to Assignment</button></a></td>
+              <td>
+              <Link href = {{pathname: "/assignment", query: {assignment_id: id, assignment_name: assignment_name, grade: grade, feedback: feedback}}}>
+                <a><button>Go to Assignment</button></a>
+              </Link>;
+                </td>
               </tr>
             )
           })

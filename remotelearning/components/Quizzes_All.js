@@ -1,5 +1,7 @@
 
 import React, { useState } from 'react';
+import Link from "next/link"
+import Router from "next/router"
 
 class Assignment_Hub extends React.Component{
   constructor(props){
@@ -23,7 +25,11 @@ class Assignment_Hub extends React.Component{
               <tr key = {id}>
                 <td>{assignment_name}</td>
                 {completeRow}
-              <td><a href = {window.location.hostname +"/quiz/?id=" + {id}}><button>Go to Quiz</button></a></td>
+              <td>
+              <Link href = {{pathname: "/quiz", query: {assignment_id: id, assignment_name: assignment_name}}}>
+                <a><button>Go to Quiz</button></a>
+              </Link>  
+              </td>
               </tr>
             )
           })
