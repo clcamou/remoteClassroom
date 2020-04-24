@@ -7,10 +7,10 @@ let dotenv = require('dotenv');
 let passport = require('passport');
 let Auth0Strategy = require('passport-auth0');
 let flash = require('connect-flash');
-let userInViews = require('./lib/middleware/userInViews');
 let authRouter = require('./routes/auth');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
+let server = http.createServer(app)
 
 dotenv.config();
 
@@ -90,7 +90,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(userInViews());
+app.use(usersRouter());
 app.use('/', authRouter);
 app.use('/', indexRouter);
 app.use('/', usersRouter);
