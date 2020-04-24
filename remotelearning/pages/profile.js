@@ -11,10 +11,9 @@ function ProfileCard({ user }) {
       <h1>Profile</h1>
 
       <div>
-        <h3>Profile (client rendered)</h3>
         <img src={user.picture} alt="user picture" />
-        <p>nickname: {user.nickname}</p>
-        <p>name: {user.name}</p>
+        <p>Username: {user.nickname}</p>
+        <p>Email: {user.name}</p>
       </div>
     </>
   )
@@ -24,9 +23,17 @@ function Profile() {
   const { user, loading } = useFetchUser({ required: true })
 
   return (
-    <Layout user={user} loading={loading}>
+    <>
+    <p><Layout user={user} loading={loading}>
       {loading ? <>Loading...</> : <ProfileCard user={user} />}
-    </Layout>
+    </Layout></p>
+     <style jsx>{`
+       p {
+         color: cadetblue;
+         text-align: center;
+       }
+     `}</style>
+     </>
   )
 }
 
