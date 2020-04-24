@@ -17,6 +17,7 @@ export default function HomePage(props) {
   const { user, loading } = useFetchUser();
 
   return (
+    <div>
     <Layout user={user} loading={loading}>
       {loading && !user && (
     <>
@@ -69,5 +70,6 @@ export default function HomePage(props) {
     </>
       )}
   </Layout>
+  </div>
   )
 }

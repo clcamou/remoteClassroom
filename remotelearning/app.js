@@ -7,10 +7,10 @@ let dotenv = require('dotenv');
 let passport = require('passport');
 let Auth0Strategy = require('passport-auth0');
 let flash = require('connect-flash');
+let userInViews = require('./lib/middleware/userInViews');
 let authRouter = require('./routes/auth');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-let server = http.createServer(app)
 
 dotenv.config();
 
@@ -44,8 +44,9 @@ passport.deserializeUser(function (user, done) {
 
 const app = express();
 
-// Pages setup
-app.set('pages', path.join(__dirname, 'pages'));
+// View engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(cookieParser());
@@ -90,7 +91,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(usersRouter());
+app.use(userInViews());
 app.use('/', authRouter);
 app.use('/', indexRouter);
 app.use('/', usersRouter);

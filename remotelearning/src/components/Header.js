@@ -1,84 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 import { useUser } from '../../lib/user';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from 'reactstrap';
 
 const Header = () => {
   const { user, loading } = useUser();
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <header>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-          </li>
-          {!loading &&
-            (user ? (
+      <Navbar color="light" light expand="md">
+        <NavbarBrand><img src="/logo.svg" alt="The Learning Curve"></img></NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            {!loading && user ? (
               <>
-                <li>
-                  <Link href="/profile">
-                    <a>Profile</a>
-                  </Link>
-                </li>{' '}
-                <li>
-                  <a href="/profile-ssr">Profile (SSR)</a>
-                </li>{' '}
-                <li>
-                  <a href="/api/logout">Logout</a>
-                </li>
+
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    <img src="/settings.svg" alt="settings" width={30}></img>
+                  </DropdownToggle>
+                  <DropdownMenu right>
+                    <DropdownItem>
+                      <NavLink href="/profile">
+                        <img src="/account.svg" alt="profile" width={30}></img> <a>Profile</a>
+                      </NavLink>
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      <NavLink role="button" onClick={handleLogout}>
+                        <img src="/logout.svg" alt="logout" width={30}></img> <a>Logout</a>
+                      </NavLink>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
               </>
             ) : (
-              <>
-                <li>
-                  <a href="/api/login">Login</a>
-                </li>
-              </>
-            ))}
-        </ul>
-      </nav>
-      <style jsx>{`
-        header {
-          padding: 0.2rem;
-          color: #fff;
-          background-color: #333;
-        }
-        nav {
-          max-width: 42rem;
-          margin: 1.5rem auto;
-        }
-        ul {
-          display: flex;
-          list-style: none;
-          margin-left: 0;
-          padding-left: 0;
-        }
-        li {
-          margin-right: 1rem;
-        }
-        li:nth-child(2) {
-          margin-right: auto;
-        }
-        a {
-          color: #fff;
-          text-decoration: none;
-        }
-        button {
-          font-size: 1rem;
-          color: #fff;
-          cursor: pointer;
-          border: none;
-          background: none;
-        }
-      `}</style>
+                <>
+                  <NavItem>
+                    <NavLink href="/about"><a>About</a></NavLink>
+                  </NavItem>
+                </>
+              )}
+          </Nav>
+
+        </Collapse>
+      </Navbar>
     </header>
   );
 };
+
 export default Header;

@@ -1,17 +1,14 @@
 import base64url from 'base64url';
 import { randomBytes } from 'crypto';
 import { IncomingMessage, ServerResponse } from 'http';
-
-import version from '../version';
-import IAuth0Settings from '../settings';
-import { setCookies } from '../utils/cookies';
-import { IOidcClientFactory } from '../utils/oidc-client';
+import IAuth0Settings from '../setting';
+import { setCookies } from '../utlis/cookies';
+import { IOidcClientFactory } from '../utlis/oidc-client';
 
 function telemetry(): string {
   const bytes = Buffer.from(
     JSON.stringify({
       name: 'nextjs-auth0',
-      version
     })
   );
 

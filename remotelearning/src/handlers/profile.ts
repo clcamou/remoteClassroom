@@ -2,7 +2,7 @@ import { NextApiResponse, NextApiRequest } from 'next';
 
 import tokenCacheHandler from './token-cache';
 import { ISessionStore } from '../session/store';
-import { IOidcClientFactory } from '../utils/oidc-client';
+import { IOidcClientFactory } from '../utlis/oidc-client';
 
 export type ProfileOptions = {
   refetch?: boolean;
