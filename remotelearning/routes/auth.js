@@ -1,11 +1,10 @@
-const express = require('express')
-const router = express.Router()
-const User = require('../database/models/user')
-const passport = require('../passport')
-const dotenv = require('dotenv');
-const util = require('util');
-const url = require('url');
-const querystring = require('querystring');
+var express = require('express');
+var router = express.Router();
+var passport = require('passport');
+var dotenv = require('dotenv');
+var util = require('util');
+var url = require('url');
+var querystring = require('querystring');
 
 dotenv.config();
 
@@ -34,16 +33,16 @@ router.get('/callback', function (req, res, next) {
 router.get('/logout', (req, res) => {
   req.logout();
 
-  let returnTo = req.protocol + '://' + req.hostname;
-  let port = req.connection.localPort;
+  var returnTo = req.protocol + '://' + req.hostname;
+  var port = req.connection.localPort;
   if (port !== undefined && port !== 80 && port !== 443) {
     returnTo += ':' + port;
   }
 
-  let logoutURL = new url.URL(
+  var logoutURL = new url.URL(
     util.format('https://%s/v2/logout', process.env.AUTH0_DOMAIN)
   );
-  let searchString = querystring.stringify({
+  var searchString = querystring.stringify({
     client_id: process.env.AUTH0_CLIENT_ID,
     returnTo: returnTo
   });
@@ -52,6 +51,4 @@ router.get('/logout', (req, res) => {
   res.redirect(logoutURL);
 });
 
-
-
-module.exports = router
+module.exports = router;

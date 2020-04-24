@@ -1,6 +1,6 @@
-let express = require('express');
-let secured = require('../lib/middleware/secured');
-let router = express.Router();
+var express = require('express');
+var secured = require('../lib/middleware/secured');
+var router = express.Router();
 
 /* GET user profile. */
 router.get('/user', secured(), function (req, res, next) {
@@ -12,4 +12,3 @@ router.get('/user', secured(), function (req, res, next) {
 });
 
 module.exports = router;
-
