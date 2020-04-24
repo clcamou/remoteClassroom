@@ -20,14 +20,6 @@ function Layout({ user, loading = false, children }) {
           margin: 1.5rem auto;
         }
       `}</style>
-      <style jsx global>{`
-        body {
-          margin: 0;
-          color: #333;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-            Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-      `}</style>
     </>
   )
 }
