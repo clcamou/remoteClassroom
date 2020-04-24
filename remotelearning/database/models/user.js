@@ -25,7 +25,9 @@ db.sequelize.define(
 		type: Sequelize.STRING
 	  },
 	  username: {
-		type: Sequelize.STRING
+		type: Sequelize.STRING,
+		allownull: false, 
+		unique: true
 	  },
 	  school_id: {
 		type: Sequelize.INTEGER, 
@@ -48,7 +50,7 @@ User.methods = {
 	hashPassword: plainTextPassword => {
 		return bcrypt.hashSync(plainTextPassword, 10)
 	},
-	AssociateWithSchool: function(school){
+	AssociateWithSchool: async function(school){
 		this.school_id = school
 		await this.save()
         return
