@@ -1,4 +1,4 @@
-import Sequelize from "sequelize";
+
 import Questions from "../../database/models/Assignment_Questions"
 //grab assignments 
 //assumes you have access to assignment ID
