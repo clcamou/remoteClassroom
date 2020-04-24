@@ -1,21 +1,21 @@
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-var dotenv = require('dotenv');
-var passport = require('passport');
-var Auth0Strategy = require('passport-auth0');
-var flash = require('connect-flash');
-var userInViews = require('./lib/middleware/userInViews');
-var authRouter = require('./routes/auth');
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let express = require('express');
+let path = require('path');
+let logger = require('morgan');
+let cookieParser = require('cookie-parser');
+let session = require('express-session');
+let dotenv = require('dotenv');
+let passport = require('passport');
+let Auth0Strategy = require('passport-auth0');
+let flash = require('connect-flash');
+let userInViews = require('./lib/middleware/userInViews');
+let authRouter = require('./routes/auth');
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
 
 dotenv.config();
 
 // Configure Passport to use Auth0
-var strategy = new Auth0Strategy(
+let strategy = new Auth0Strategy(
   {
     domain: process.env.AUTH0_DOMAIN,
     clientID: process.env.AUTH0_CLIENT_ID,
@@ -44,15 +44,14 @@ passport.deserializeUser(function (user, done) {
 
 const app = express();
 
-// View engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+// Pages setup
+app.set('pages', path.join(__dirname, 'pages'));
 
 app.use(logger('dev'));
 app.use(cookieParser());
 
 // config express-session
-var sess = {
+let sess = {
   secret: 'CHANGE THIS SECRET',
   cookie: {},
   resave: false,
@@ -67,7 +66,7 @@ if (app.get('env') === 'production') {
   // errors with passport-auth0.
   // Ref: https://github.com/auth0/passport-auth0/issues/70#issuecomment-480771614
   // Ref: https://www.npmjs.com/package/express-session#cookiesecure
-  // app.set('trust proxy', 1);
+  app.set('trust proxy', 1);
   
   sess.cookie.secure = true; // serve secure cookies, requires https
 }
