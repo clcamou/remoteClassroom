@@ -1,9 +1,23 @@
 import Link from 'next/link'
+import React from 'react';
+import {
+  Collapse, 
+  NavbarToggler, 
+  NavbarBrand, 
+  NavItem, 
+  UncontrolledDropdown, 
+  DropdownMenu, 
+  DropdownItem
+} from 'reactstrap'
+
+
 
 function Header({ user, loading }) {
-  return (
+  const toggle = () => setIsOpen(!isOpen);
+  return ( 
     <header>
       <nav>
+        <NavbarBrand><img src="../public/logo.svg" alt="The Learning Curve"></img></NavbarBrand>
         <ul>
           <li>
             <Link href="/">
@@ -20,12 +34,7 @@ function Header({ user, loading }) {
               <>
                 <li>
                   <Link href="/profile">
-                    <a>Client-rendered profile</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/advanced/ssr-profile">
-                    <a>Server rendered profile (advanced)</a>
+                    <a>Profile</a>
                   </Link>
                 </li>
                 <li>
@@ -44,7 +53,7 @@ function Header({ user, loading }) {
         header {
           padding: 0.2rem;
           color: #fff;
-          background-color: #333;
+          background-color: #5f9ea0;
         }
         nav {
           max-width: 42rem;

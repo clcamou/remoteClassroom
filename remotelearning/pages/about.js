@@ -10,9 +10,7 @@ function About() {
     <Layout user={user} loading={loading}>
       <h1>About</h1>
       <p>
-        This is the about page, navigating between this page and <i>Home</i> is
-        always pretty fast. However, when you navigate to the <i>Profile</i>{' '}
-        page it takes more time because it uses SSR to fetch the user first;
+       Welcome to our digital classroom. Here at The Learning Curve we strive to bridge the education gap by providing a platform that allows students anywhere to learn and grow. Our app allows students to store their information and work offline. Once they are able to reconnect to the internet, their assignments and quizzes will get sent back to the teacher. 
       </p>
     </Layout>
   )

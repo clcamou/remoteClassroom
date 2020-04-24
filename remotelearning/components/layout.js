@@ -13,13 +13,6 @@ function Layout({ user, loading = false, children }) {
       <main>
         <div className="container">{children}</div>
       </main>
-
-      <style jsx>{`
-        .container {
-          max-width: 42rem;
-          margin: 1.5rem auto;
-        }
-      `}</style>
     </>
   )
 }
