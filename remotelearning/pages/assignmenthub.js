@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useUser } from '../lib/hooks'
-import Assignment_Hub from "../components/Assignment_Hub"
+import AssignmentHub from '../components/AssignmentHub'
 
-export default function assignmenthub() {
+export default async function assignmenthub() {
     const [user, { loading }] = useUser()   
     useEffect(() => {
       // redirect user to login if not authenticated
@@ -16,6 +16,6 @@ export default function assignmenthub() {
         }
     })
     return (
-     <Assignnment_Hub data = {data}/>
+     <AssignnmentHub data = {data}/>
     )
   }

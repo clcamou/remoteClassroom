@@ -2,7 +2,6 @@ import React from 'react'
 
 import Layout from '../components/layout'
 import { useFetchUser } from '../lib/user'
-import card from 'reactstrap'
 import Dashboard from '../components/Dashboard'
 
 function Home() {

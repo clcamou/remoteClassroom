@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
         <div className="row">
           <div className="col-sm">
             <div className="card">
-              <h4><a href="/api/lessons">Lessons</a></h4>
+              <h4><a href="/api/assignmenthub">Lessons</a></h4>
             </div>
           </div>
           <div className="col-sm">

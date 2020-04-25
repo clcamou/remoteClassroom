@@ -10,7 +10,7 @@ import {
   UncontrolledDropdown,
   DropdownMenu,
   DropdownItem,
-  DropdownToggle, 
+  DropdownToggle,
 } from 'reactstrap'
 
 
@@ -41,16 +41,37 @@ function Header({ user, loading }) {
                     <DropdownToggle nav caret>
                       <img src="/settings.svg" alt="settings" width={30}></img>
                     </DropdownToggle>
-                    <DropdownMenu left>
+                    <DropdownMenu right>
                       <DropdownItem>
                         <NavLink href="/profile">
                           <img src="/account.svg" alt="profile" width={30}></img>
-                          <a>Profile</a>
+                          <a> Profile</a>
                         </NavLink>
                       </DropdownItem>
                       <DropdownItem>
-                        <img src="/logout.svg" alt="logout" width={30}></img>
-                        <a href="/api/logout">Logout</a>
+                        <NavLink href="/assignmenthub">
+                          <img src="/homework.svg" alt="homework" width={30}></img>
+                          <a> Assignments</a>
+                        </NavLink>
+                      </DropdownItem>
+                      <DropdownItem>
+                        <NavLink href="/quizzes">
+                          <img src="/test.svg" alt="Quizzes" width={30}></img>
+                          <a> Quizzes</a>
+                        </NavLink>
+                      </DropdownItem>
+                      <DropdownItem>
+                      <NavLink href="/grades">
+                        <img src="/grades.svg" alt="grades" width={30}></img>
+                        <a> Grades</a>
+                      </NavLink>
+                      </DropdownItem>
+                      <div class="dropdown-divider"></div>
+                      <DropdownItem>
+                        <NavLink href="/api/logout">
+                          <img src="/logout.svg" alt="logout" width={30}></img>
+                          <a> Logout</a>
+                        </NavLink>
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
@@ -63,7 +84,7 @@ function Header({ user, loading }) {
                 ))}
           </Nav>
         </Collapse>
-      </Navbar>    
+      </Navbar>
     </header>
   )
 }

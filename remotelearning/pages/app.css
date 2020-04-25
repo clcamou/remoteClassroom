@@ -7,7 +7,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"');
 
 body {
-  margin: 0 auto;
   padding: 0;
   color: #333;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
@@ -19,8 +18,16 @@ body {
 
 header {
   background-color: #fff;
+  font-size: 17px;
+  color: black
+}
+a {
+  color: black;
 }
 
+.card {
+  font-family: 'Indie Flower', cursive;
+}
 
 .card-login {
   text-align: center;

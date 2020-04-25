@@ -11,9 +11,9 @@ export default function MyApp({ Component, pageProps }) {
         Remote Learning
       </title>
       <main>
-        <div className="container">
+        <>
           <Component {...pageProps} />
-        </div>
+        </>
       </main>
     </>
   )
