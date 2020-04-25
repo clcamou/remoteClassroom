@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Layout from './componentslayout'
+import Layout from './components/layout'
 import { useFetchUser } from './lib/user'
 import Dashboard from './dashboard'
 
