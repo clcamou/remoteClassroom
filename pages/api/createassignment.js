@@ -1,7 +1,7 @@
   
-import  Assignments from "../../database/models/Assignments";
-import { Student_Assignments } from "../../database/models/Student_Assignments";
-import { User_Classes } from "../../database/models/User_Classes";
+import  Assignments from "../database/models/Assignments";
+import { Student_Assignments } from "../database/models/Student_Assignments";
+import { User_Classes } from "../database/models/User_Classes";
 export default async (req,res) => {
     //let class_id = req.body.class_id
     //let name = req.body.assignment_name

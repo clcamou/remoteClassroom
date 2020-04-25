@@ -1,5 +1,5 @@
-import { Student_Assignments } from "../../database/models/Student_Assignments";
-import { Assignments } from  "../../database/models/Assignments"
+import { Student_Assignments } from "../database/models/Student_Assignments";
+import { Assignments } from  "../database/models/Assignments"
 
 export default async (req,res) => {
     let nickname = req.body.nickname

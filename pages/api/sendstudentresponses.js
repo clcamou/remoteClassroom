@@ -1,4 +1,4 @@
-import  Student_Responses  from "../../database/models/Student_Responses";
+import  Student_Responses  from "../database/models/Student_Responses";
 
 
 export default async (req,res) => {

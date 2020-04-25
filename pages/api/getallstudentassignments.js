@@ -1,4 +1,4 @@
-import { Student_Assignments } from "../../database/models/Student_Assignments";
+import { Student_Assignments } from "../database/models/Student_Assignments";
 
 export default async (req,res) => {
     let user = req.body.user_id

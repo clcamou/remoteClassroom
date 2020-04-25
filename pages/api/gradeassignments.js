@@ -1,7 +1,7 @@
   
 //import db from "../../database/db"
 //import { sequelize } from "sequelize";
-import Student_Assignments from "../../database/models/Student_Assignments";
+import Student_Assignments from "../database/models/Student_Assignments";
 
 
 export default async (req,res) => {

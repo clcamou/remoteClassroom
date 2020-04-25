@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
-
+import user from './lib/user'
 import Dashboard from "./components/Dashboard"
+
 export default function dashboard() {
     const [user, { loading }] = useUser()   
     useEffect(() => {
