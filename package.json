@@ -1,5 +1,9 @@
 {
-  "name": "nextjs-auth0-example",
+  "name": "the-lerning-curve",
+  "version": "1.0.0",
+  "engines": {
+    "node": "12.16.x"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",

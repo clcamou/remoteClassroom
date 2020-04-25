@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
-import { useUser } from '../lib/hooks'
-import AssignmentHub from '../components/AssignmentHub'
+import AssignmentHub from './components/AssignmentHub'
 
 export default async function assignmenthub() {
     const [user, { loading }] = useUser()   

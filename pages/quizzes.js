@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import Quizzes_All from "../components/Quizzes_All"
+import Quizzes_All from "./components/Quizzes_All"
 
 export default async function quizzes() {
     const [user, { loading }] = useUser()   

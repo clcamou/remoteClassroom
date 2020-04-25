@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import {useRouter} from "next/router"
-import Quiz from "../components/Quiz"
+import Quiz from "./components/Quiz"
 export default function quiz() {
     let router = useRouter()
     const [user, { loading }] = useUser()   

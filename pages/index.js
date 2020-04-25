@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-import { useFetchUser } from '../lib/user'
-import Dashboard from '../components/Dashboard'
+import Layout from './componentslayout'
+import { useFetchUser } from './lib/user'
+import Dashboard from './dashboard'
 
 function Home() {
   const { user, loading } = useFetchUser()
