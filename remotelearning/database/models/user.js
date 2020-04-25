@@ -1,0 +1,76 @@
+const Sequelize = require('sequelize');
+let path = require("path");
+let appRoot = require("app-root-path")
+const db = require(path.join(appRoot, 'database/db'));
+const bcrypt = require('bcryptjs');
+Sequelize.promise = Promise
+
+//define the model with field of database
+db.sequelize.define(
+	'User',
+	{
+	  id: {
+		type: Sequelize.INTEGER,
+		primaryKey: true,
+		autoIncrement: true
+	  },
+	  first_name: {
+		type: Sequelize.STRING
+	  },
+	  last_name: {
+		type: Sequelize.STRING
+	  },
+	  email: {
+		type: Sequelize.STRING
+	  },
+	  password: {
+		type: Sequelize.STRING
+	  },
+	  username: {
+		type: Sequelize.STRING,
+		allownull: false, 
+		unique: true
+	  },
+	  school_id: {
+		type: Sequelize.INTEGER, 
+      },
+      role: {
+          type: Sequelize.Instance,
+      },
+	  created: {
+		type: Sequelize.DATE,
+		defaultValue: Sequelize.NOW
+	  }
+	},
+  );
+
+// Define methods
+User.methods = {
+	checkPassword: function (inputPassword) {
+		return bcrypt.compareSync(inputPassword, this.password)
+	},
+	hashPassword: plainTextPassword => {
+		return bcrypt.hashSync(plainTextPassword, 10)
+	},
+	AssociateWithSchool: async function(school){
+		this.school_id = school
+		await this.save()
+        return
+    }
+}
+
+// Define hooks for pre-saving//
+user.pre('save', function (next) {
+	if (!this.password) {
+		console.log('models/user.js Please enter in password')
+		next()
+	} else {
+		console.log('models/user.js hashPassword in pre save');
+		
+		this.password = this.hashPassword(this.password)
+		next()
+	}
+})
+
+const User = Sequelize.model('User', user)
+module.exports = User
