@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
-const db = require('../db');
+let path = require("path");
+let appRoot = require("app-root-path")
+const db = require(path.join(appRoot, 'database/db'));
 const bcrypt = require('bcryptjs');
 Sequelize.promise = Promise
 

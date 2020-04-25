@@ -1,7 +1,9 @@
 //import Sequelize library 
 const Sequelize = require('sequelize');
+let path = require("path");
+let appRoot = require("app-root-path")
 //connect to database
-const db = require('../../../../database/db');
+const db = require(path.join(appRoot, 'database/db'));
 
 //define the model with field of database
 let Assignments = db.sequelize.define(
