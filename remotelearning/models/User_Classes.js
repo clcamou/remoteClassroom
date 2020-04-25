@@ -10,7 +10,7 @@ module.exports = db.sequelize.define(
       class_id: {
         type: Sequelize.INTEGER
       },
-      user_id: {
+      nickname: {
         type: Sequelize.INTEGER
       },
       created: {

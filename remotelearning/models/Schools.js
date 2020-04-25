@@ -10,7 +10,7 @@ module.exports = db.sequelize.define(
     assignment_id: {
       type: Sequelize.INTEGER
     },
-    user_id: {
+    nickname: {
       type: Sequelize.INTEGER
     },
     question_number: {
@@ -29,25 +29,25 @@ module.exports = db.sequelize.define(
   }, {
     classMethods: {
       getResponsesForAssignment: function(student, assignment_id){
-        this.findAll({where: {user_id: student, assignment_id: assignment_id}})
+        this.findAll({where: {nickname: student, assignment_id: assignment_id}})
       },
       gradeResponseForAssignment: function(student, assignment_id, question_number, response_grade){
         this.update({response_grade: response_grade}, {
           where: {
-            user_id: student,
+            nickname: student,
             assignment_id: assignment_id,
             question_number: question_number
           }
         }).then(console.log(`graded question ${question_number} for assignment ${assignment_id}for user ${student}`))
       },
       addResponseToAssignment: function(student, assignment_id, question_number, question_response){
-        this.create({assignment_id: assignment_id, user_id: student, question_number: question_number, question_response: question_response})
+        this.create({assignment_id: assignment_id, nickname: student, question_number: question_number, question_response: question_response})
         .then(console.log(`recorded response to question ${question_number} for assignment ${assignment_id}for user ${student}`))
       },
-      editResponse: function(question_response, user_id, assignment_id, question_number){
+      editResponse: function(question_response, nickname, assignment_id, question_number){
         this.update({question_response: question_response}, {
           where: {
-            user_id: student,
+            nickname: nickname,
             assignment_id: assignment_id,
             question_number: question_number
           }
@@ -56,7 +56,7 @@ module.exports = db.sequelize.define(
       removeResponseFromAssignment: function(student, assignment_id, question_number){
         this.destroy({
           where: {
-            user_id: student,
+            nickname: student,
             assignment_id: assignment_id,
             question_number: question_number
           }

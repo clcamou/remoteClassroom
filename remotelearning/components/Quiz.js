@@ -57,7 +57,7 @@ class Quiz extends React.Component{
           <div className = "assignment-container">
               <h4 className = "assignment_header">{this.props.assignment_name}</h4>
               
-              <form action = {"/submitassignment/?assignment=" + this.props.assignment_id + "&user=" + this.props.user_id} method = "POST">
+              <form action = {"/api/submitassignment/?assignment=" + this.props.assignment_id + "&user=" + this.props.nickname} method = "POST">
                 {this.generateAssignments(this.props.data)}
                 <div className = "submit-div">
                   <h4>Submit Answers</h4>

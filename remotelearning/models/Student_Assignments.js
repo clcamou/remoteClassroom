@@ -10,7 +10,7 @@ module.exports = db.sequelize.define(
     assignment_id: {
       type: Sequelize.INTEGER
     },
-    user_id: {
+    nickname: {
       type: Sequelize.INTEGER
     },
     is_complete: {
@@ -33,15 +33,15 @@ module.exports = db.sequelize.define(
       getAssignmentsForUser: function(id){
         this.findAll({
           where: {
-            user_id: id
+            nickname: id
           }
         }).then(function(res){
           return res
         })
       }, 
       //associates an assignment with a user
-      addAssignmentToStudent: function(assignment_id, user_id){
-        this.create({assignment_id: assignment_id, user_id: user_id}).then(console.log(`associated assignment ${assignment_id} with user ${user_id}`))
+      addAssignmentToStudent: function(assignment_id, nickname){
+        this.create({assignment_id: assignment_id, nickname: nickname}).then(console.log(`associated assignment ${assignment_id} with user ${nickname}`))
       }
     }
   }
